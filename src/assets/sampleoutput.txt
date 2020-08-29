@@ -1,0 +1,58 @@
+== [CompletedEpisodeDto] ==
+> Kudos: 1140
+> Fame: 0
+> Crowns: 1
+
+[Round 0 | round_gauntlet_01]
+> Qualified: True
+> Position: 3
+> Kudos: 30
+> Fame: 0
+> Bonus Tier: 1
+> Bonus Kudos: 70
+> Bonus Fame: 0
+> BadgeId: silver
+
+
+[Round 1 | round_match_fall]
+> Qualified: True
+> Position: 19
+> Kudos: 20
+> Fame: 0
+> Bonus Tier: 0
+> Bonus Kudos: 35
+> Bonus Fame: 0
+> BadgeId: gold
+
+
+[Round 2 | round_tunnel]
+> Qualified: True
+> Position: 11
+> Kudos: 60
+> Fame: 0
+> Bonus Tier: 0
+> Bonus Kudos: 35
+> Bonus Fame: 0
+> BadgeId: gold
+
+
+[Round 3 | round_block_party]
+> Qualified: True
+> Position: 4
+> Kudos: 50
+> Fame: 0
+> Bonus Tier: 0
+> Bonus Kudos: 35
+> Bonus Fame: 0
+> BadgeId: gold
+
+
+[Round 4 | round_jump_showdown]
+> Qualified: True
+> Position: 1
+> Kudos: 770
+> Fame: 0
+> Bonus Tier: 0
+> Bonus Kudos: 35
+> Bonus Fame: 0
+> BadgeId: gold

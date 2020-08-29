@@ -1,0 +1,10 @@
+<h2 class="episodes">Last Episode</h2>
+<p>Kudos: {{lastEpisode.Kudos}}</p>
+<p>Fame: {{lastEpisode.Fame}}</p>
+<p>Crowns: {{lastEpisode.Fame}}</p>
+
+<h2>Rounds</h2>
+<div *ngFor="let round of lastEpisode.Rounds; index as i">
+    <p>Round {{i}} : {{round.roundCode}} ----------</p>
+    <p>Qualified: {{round.qualified}}</p>
+</div>
