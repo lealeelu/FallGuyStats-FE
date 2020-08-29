@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+#File server for player.log
+## Install http-server
+
+Run `npm install -g http-server`
+Navigate to the location of your player.log file: `cd C:\Users\lealeelu\AppData\LocalLow\Mediatonic\FallGuys_client`
+Run the fileserver `http-server ./ --cors`
+The cors flag is to allow cross-domain referencing from localhost:4200.
