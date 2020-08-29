@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Episode } from '../models/episode.model';
 import { Round } from '../models/round.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -61,7 +62,7 @@ export class ParserService {
               let bonusTierStateText = data.substring(bonusTierIndex, bonusTierIndex+16)
               let bonusTierRegEx = /Bonus Tier:.(\d+)/g
               let bonusTierState = bonusTierRegEx.exec(bonusTierStateText)
-              if (bonusTierState[1]) {
+              if (bonusTierState && bonusTierState[1]) {
                 bonusTier = parseInt(bonusTierState[1])
               }
 
