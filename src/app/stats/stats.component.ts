@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { Episode } from '../models/episode.model'
 import { Round, Badge, RoundCode } from '../models/round.model'
+import { ParserService } from '../services/parser.service';
 
 @Component({
   selector: 'app-stats',
@@ -9,12 +10,15 @@ import { Round, Badge, RoundCode } from '../models/round.model'
 })
 export class StatsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private parserService: ParserService
+  ) { }
 
   lastEpisode: Episode;
 
   ngOnInit(): void {
     //dummy episode
+    /*
     this.lastEpisode = new Episode()
     this.lastEpisode.Crowns = 1
     this.lastEpisode.Kudos = 100
@@ -33,6 +37,8 @@ export class StatsComponent implements OnInit {
     round1.fame = 0
     round1.badge = Badge.nothing
     this.lastEpisode.Rounds = [round1, round2]
+*/
+    this.lastEpisode = this.parserService.getData()
   }
 
 }

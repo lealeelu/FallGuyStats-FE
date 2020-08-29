@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { StatsComponent } from './stats/stats.component';
+import { ParserService } from './services/parser.service'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -10,9 +12,10 @@ import { StatsComponent } from './stats/stats.component';
     StatsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ParserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
