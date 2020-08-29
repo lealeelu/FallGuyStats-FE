@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { Episode } from '../models/episode.model'
-import { Round, Badge, RoundCode } from '../models/round.model'
+import { Round } from '../models/round.model'
 import { ParserService } from '../services/parser.service';
 
 @Component({

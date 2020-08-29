@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Episode } from '../models/episode.model';
-import { Round, RoundCode } from '../models/round.model';
+import { Round } from '../models/round.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,16 @@ export class ParserService {
   public getData(): Episode {
     let episode = new Episode()
     this.http.get('assets/sampleoutput.txt', {responseType: 'text'}).subscribe(data => {
+      let episodeKudosIndex = data.indexOf("Kudos:")
+      let episodeKudosStateText = data.substring(episodeKudosIndex,episodeKudosIndex+10)
+      let episodeKudosRegEx = /Kudos:.(\d+)/g
+      let episodeKudosState = episodeKudosRegEx.exec(episodeKudosStateText)
+
+      let episodeFameIndex = data.indexOf("Fame:")
+      let episodeFameStateText = data.substring(episodeFameIndex,episodeFameIndex+10)
+      let episodeFameRegEx = /Fame:.(\d+)/g
+      let episodeFameState = episodeFameRegEx.exec(episodeFameStateText)
+
       let crownIndex = data.indexOf("Crowns:")
       let crownState = data.substring(crownIndex+8,crownIndex+9)
       if (crownState == "1") {
@@ -82,7 +92,7 @@ export class ParserService {
               }
 
               let round = new Round()
-              round.roundCode = RoundCode.(roundCode)
+              round.roundCode = round.getRoundName(roundCode)
               round.qualified = (qualifiedState[1] == "True")
               round.position = parseInt(positionState[1]) 
               round.kudos = parseInt(kudosState[1])
@@ -90,15 +100,15 @@ export class ParserService {
               round.bonusTier = bonusTier
               round.bonusKudos = parseInt(bonusKudosState[1])
               round.bonusFame = parseInt(bonusFameState[1])
-              round.badge = Badge.badgeId
+              round.badge = badgeId
+              episode.Rounds.push(round)
           }
       }
-      episode.Kudos
-      episode.Fame
-      episode.Rounds
-      episode.Crowns = parseInt(crownState);
+      episode.Kudos = parseInt(episodeKudosState[1])
+      episode.Fame = parseInt(episodeFameState[1])
+      episode.Crowns = parseInt(crownState)
 
-    });
+    })
     return episode
   }
 }
