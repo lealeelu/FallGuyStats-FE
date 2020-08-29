@@ -1,5 +1,5 @@
 export class Round {
-    roundCode: RoundCode
+    roundCode: string
     qualified: boolean
     position: number
     kudos: number
@@ -8,6 +8,16 @@ export class Round {
     bonusKudos: number
     bonusFame: number
     badge: Badge
+
+    roundCodeMap = new Map<string, string>([
+        ["gauntletcode", "Gauntlet"],
+        ["fallcode", "Match Fall"]
+    ])
+
+    getRoundName(roundCode: string): string {
+        if (this.roundCodeMap.has(roundCode)) return this.roundCodeMap.get(roundCode)
+        else return "unknown round code"
+    }
 }
 
 export enum Badge {
@@ -15,9 +25,4 @@ export enum Badge {
     silver,
     bronze,
     nothing
-}
-
-export enum RoundCode {
-    gauntlet = "Gauntlet",
-    matchfall = "Match Fall"
 }
