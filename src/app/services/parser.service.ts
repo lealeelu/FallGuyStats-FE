@@ -13,7 +13,7 @@ export class ParserService {
 
   public getData(): Episode {
     let episode = new Episode()
-    this.http.get('assets/sampleoutput.txt', {responseType: 'text'}).subscribe(data => {
+    this.http.get(environment.playerLogFile, {responseType: 'text'}).subscribe(data => {
       let episodeKudosIndex = data.indexOf("Kudos:")
       let episodeKudosStateText = data.substring(episodeKudosIndex,episodeKudosIndex+10)
       let episodeKudosRegEx = /Kudos:.(\d+)/g

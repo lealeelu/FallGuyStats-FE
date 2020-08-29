@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   playerLogFile: 'http://localhost:8080/player.log',
+  //playerLogFile: 'assets/sampleoutput.txt',
 };
 
 /*
