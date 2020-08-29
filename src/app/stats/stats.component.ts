@@ -40,5 +40,4 @@ export class StatsComponent implements OnInit {
 */
     this.lastEpisode = this.parserService.getData()
   }
-
 }
