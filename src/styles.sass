@@ -1,1 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto')
+
+$transparent-gray:rgba(20,20,20,.8)
+
+$gold:rgb(255, 215, 0)
+$silver:rgb(192, 192, 192)
+$bronze:rgb(205, 127, 50)
+$pass-green:rgb(0, 179, 0)
+$fail-red:rgb(230, 0, 0)
+
+#wrapper
+    position: absolute
+    top: 0
+    right: 0
+    left: 0
+    margin: 0 auto
+
+
+body
+    font-family: "Roboto"
+    font-size: 18px
+    font-weight: light
+    margin: 0
+    vertical-align: top
+h1
+    font-size: 25px
+h2
+    font-size: 18px
+    font-weight: bold
+
+.sidebar
+    background-color: $transparent-gray
+    color: white
+    width: 350px
+    height: 100%
+    padding: 15px 30px
+
+.today-win-rate
+
+.season-win-rate
+
+.rounds-since-crown
+
+.icon
+    display: inline-block
+    width: 20px
+    height: 20px
+    margin: 0 5px 0 5px
+
+.current-round
+    vertical-align: top
+
+.icon-hexagon
+    -webkit-mask-image: url('assets/icons/hexagon.svg')
+    mask-image: url('assets/icons/hexagon.svg')
+
+.icon-gold
+    background-color: $gold
+.icon-silver
+    background-color: $silver
+.icon-bronze
+    background-color: $bronze
+
+.icon-pass
+    background-color: $pass-green
+.icon-fail
+    background-color: $fail-red
+

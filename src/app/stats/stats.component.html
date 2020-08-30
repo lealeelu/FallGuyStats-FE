@@ -1,10 +1,31 @@
-<h2 class="episodes">Last Episode</h2>
-<p>Kudos: {{lastEpisode.Kudos}}</p>
-<p>Fame: {{lastEpisode.Fame}}</p>
-<p>Crowns: {{lastEpisode.Fame}}</p>
-
-<h2>Rounds</h2>
-<div *ngFor="let round of lastEpisode.Rounds; index as i">
-    <p>Round {{i}} : {{round.roundCode}} ----------</p>
-    <p>Qualified: {{round.qualified}}</p>
+<div class="sidebar">
+    <h1>Fall Guy Game Stats</h1>
+    <div class="today-win-rate">
+        <h2>Today's Winrate</h2>
+        5 crowns/6 episodes
+    </div>
+    <div class="season-win-rate">
+        <h2>Season Winrate</h2>
+        15 crowns/36 episodes
+    </div>
+    <div class="rounds-since-crown">
+        <h2>Rounds Since Crown: 5</h2>
+    </div>
+    <div class="current-round">
+        <h2>Slime Climb Stats</h2>
+        <span class="icon icon-hexagon icon-gold"></span>5
+        <span class="icon icon-hexagon icon-silver"></span>2
+        <span class="icon icon-hexagon icon-bronze"></span>3
+        <span class="icon icon-hexagon icon-pass"></span>10
+        <span class="icon icon-hexagon icon-fail"></span>2
+    </div>
+    <h2>Last Episode</h2>
+    Crowns: {{lastEpisode.Fame}}
+    
+    <h2>Rounds</h2>
+    <div *ngFor="let round of lastEpisode.Rounds; index as i">
+        Round {{i}} : {{round.roundCode}} ----------
+        Qualified: {{round.qualified}}
+    </div>
 </div>
+
