@@ -19,13 +19,15 @@
         <span class="icon icon-hexagon icon-pass"></span>10
         <span class="icon icon-hexagon icon-fail"></span>2
     </div>
-    <h2>Last Episode</h2>
-    Crowns: {{lastEpisode.Fame}}
-    
-    <h2>Rounds</h2>
-    <div *ngFor="let round of lastEpisode.Rounds; index as i">
-        Round {{i}} : {{round.roundCode}} ----------
-        Qualified: {{round.qualified}}
+    <div *ngIf="showLastEpisode">
+        <h2>Last Episode</h2>
+        Crowns: {{lastEpisode.Fame}}
+        
+        <h2>Rounds</h2>
+        <div *ngFor="let round of lastEpisode.Rounds; index as i">
+            Round {{i}} : {{round.roundCode}} ----------
+            Qualified: {{round.qualified}}
+        </div>
     </div>
 </div>
 

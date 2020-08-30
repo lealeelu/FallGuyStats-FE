@@ -20,7 +20,7 @@ $fail-red:rgb(230, 0, 0)
 body
     font-family: "Roboto"
     font-size: 18px
-    font-weight: light
+    font-weight: 100
     margin: 0
     vertical-align: top
 h1
@@ -32,15 +32,15 @@ h2
 .sidebar
     background-color: $transparent-gray
     color: white
-    width: 350px
+    width: 250px
     height: 100%
-    padding: 15px 30px
+    padding: 15px 30px 40px 30px
 
-.today-win-rate
+//.today-win-rate
 
-.season-win-rate
+//.season-win-rate
 
-.rounds-since-crown
+//.rounds-since-crown
 
 .icon
     display: inline-block
@@ -53,8 +53,12 @@ h2
 
 .icon-hexagon
     -webkit-mask-image: url('assets/icons/hexagon.svg')
-    mask-image: url('assets/icons/hexagon.svg')
+    mask-image: url('assets/icons/hexagon.svg') 
 
+.icon-crown
+    -webkit-mask-image: url('assets/icons/crown.svg')
+    mask-image: url('assets/icons/crown.svg')
+    
 .icon-gold
     background-color: $gold
 .icon-silver
