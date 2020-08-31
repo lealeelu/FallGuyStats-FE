@@ -1,23 +1,32 @@
 <div class="sidebar">
-    <h1>Fall Guy Game Stats</h1>
-    <div class="today-win-rate">
-        <h2>Today's Winrate</h2>
-        5 crowns/6 episodes
+    <h1>Fall Guy Stats</h1>
+    <span class="byline">by @lealeelu and @leekydesu</span>
+    <div class="content-block today-win-rate">
+        <h2>Today</h2>
+        5 Crowns / 6 Episodes
+        <div *ngIf="showCheaterCount">
+            Cheaters: 2
+        </div>        
     </div>
-    <div class="season-win-rate">
-        <h2>Season Winrate</h2>
-        15 crowns/36 episodes
+    <div class="content-block season-win-rate">
+        <h2>Season</h2>
+        15 crowns / 36 episodes
+        <div *ngIf="showCheaterCount">
+            Cheaters: 2
+        </div>   
     </div>
-    <div class="rounds-since-crown">
+    <div class="content-bock rounds-since-crown">
         <h2>Rounds Since Crown: 5</h2>
     </div>
-    <div class="current-round">
+    <div class="content-block current-round">
         <h2>Slime Climb Stats</h2>
-        <span class="icon icon-hexagon icon-gold"></span>5
-        <span class="icon icon-hexagon icon-silver"></span>2
-        <span class="icon icon-hexagon icon-bronze"></span>3
-        <span class="icon icon-hexagon icon-pass"></span>10
-        <span class="icon icon-hexagon icon-fail"></span>2
+        <div class="icon-row">
+            <span class="icon icon-hexagon icon-gold">5</span>
+            <span class="icon icon-hexagon icon-silver">2</span>
+            <span class="icon icon-hexagon icon-bronze">3</span>
+            <span class="icon icon-hexagon icon-pass">10</span>
+            <span class="icon icon-hexagon icon-fail">2</span>
+        </div>
     </div>
     <div *ngIf="showLastEpisode">
         <h2>Last Episode</h2>

@@ -15,6 +15,7 @@ export class StatsComponent implements OnInit {
 
   lastEpisode: Episode;
   showLastEpisode: boolean = false;
+  showCheaterCount: boolean = true;
 
   ngOnInit(): void {
     this.lastEpisode = this.parserService.getData()

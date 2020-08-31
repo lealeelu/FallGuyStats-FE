@@ -16,18 +16,22 @@ $fail-red:rgb(230, 0, 0)
     left: 0
     margin: 0 auto
 
-
 body
     font-family: "Roboto"
-    font-size: 18px
+    font-size: 15px
     font-weight: 100
     margin: 0
     vertical-align: top
 h1
     font-size: 25px
+    margin-block-end: 0
+    font-variant-caps: all-small-caps
 h2
-    font-size: 18px
+    font-size: 20px
     font-weight: bold
+    margin-block-start: 2px
+    margin-block-end: 4px
+    font-variant-caps: all-small-caps
 
 .sidebar
     background-color: $transparent-gray
@@ -36,6 +40,13 @@ h2
     height: 100%
     padding: 15px 30px 40px 30px
 
+.byline
+    font-size: 15px
+
+.content-block
+    //margin-top: 10px
+    //border-top: 1px white solid
+    padding: 10px 0 10px 0
 //.today-win-rate
 
 //.season-win-rate
@@ -44,17 +55,28 @@ h2
 
 .icon
     display: inline-block
-    width: 20px
-    height: 20px
+    width: 30px
+    height: 27px
     margin: 0 5px 0 5px
 
 .current-round
     vertical-align: top
+    
+.icon-row 
+    padding-top: 5px
 
 .icon-hexagon
     -webkit-mask-image: url('assets/icons/hexagon.svg')
-    mask-image: url('assets/icons/hexagon.svg') 
-
+    mask-image: url('assets/icons/hexagon.svg')
+    //-webkit-mask-origin: 3px 2px
+    //-webkit-text-stroke-width: 1px
+    //-webkit-text-stroke-color: white
+    font-weight: bolder
+    font-size: 20px
+    color: black
+    text-align: center
+    padding: 3px 0 0 0
+    
 .icon-crown
     -webkit-mask-image: url('assets/icons/crown.svg')
     mask-image: url('assets/icons/crown.svg')
