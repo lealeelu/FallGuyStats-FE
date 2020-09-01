@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { Episode } from '../models/episode.model'
-import { ParserService } from '../services/parser.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-stats',
@@ -10,7 +10,7 @@ import { ParserService } from '../services/parser.service';
 export class StatsComponent implements OnInit {
 
   constructor(
-    private parserService: ParserService
+    private http: HttpClient
   ) { }
 
   lastEpisode: Episode;
@@ -18,6 +18,6 @@ export class StatsComponent implements OnInit {
   showCheaterCount: boolean = true;
 
   ngOnInit(): void {
-    this.lastEpisode = this.parserService.getData()
+    //this.lastEpisode = this.http.get
   }
 }

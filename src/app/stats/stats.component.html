@@ -1,22 +1,20 @@
 <div class="sidebar">
     <h1>Fall Guy Stats</h1>
-    <span class="byline">by @lealeelu and @leekydesu</span>
+    <p class="byline">by @lealeelu and @leekydesu</p>
     <div class="content-block today-win-rate">
         <h2>Today</h2>
-        5 Crowns / 6 Episodes
+        <p>5 Crowns / 6 Episodes</p>
         <div *ngIf="showCheaterCount">
-            Cheaters: 2
+            <p>Cheaters: 2</p>
         </div>        
     </div>
     <div class="content-block season-win-rate">
         <h2>Season</h2>
-        15 crowns / 36 episodes
+        <p>15 crowns / 36 episodes</p>
+        <p>Rounds Since Crown: 5</p>
         <div *ngIf="showCheaterCount">
-            Cheaters: 2
+            <p>Cheaters: 2</p>
         </div>   
-    </div>
-    <div class="content-bock rounds-since-crown">
-        <h2>Rounds Since Crown: 5</h2>
     </div>
     <div class="content-block current-round">
         <h2>Slime Climb Stats</h2>
@@ -30,12 +28,12 @@
     </div>
     <div *ngIf="showLastEpisode">
         <h2>Last Episode</h2>
-        Crowns: {{lastEpisode.Fame}}
+        <p></p>Crowns: {{lastEpisode.Fame}}
         
         <h2>Rounds</h2>
         <div *ngFor="let round of lastEpisode.Rounds; index as i">
-            Round {{i}} : {{round.roundCode}} ----------
-            Qualified: {{round.qualified}}
+            <p></p>Round {{i}} : {{round.roundCode}} ----------
+            <p></p>Qualified: {{round.qualified}}
         </div>
     </div>
 </div>
