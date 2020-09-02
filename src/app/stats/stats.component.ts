@@ -4,7 +4,7 @@ import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { SessionStat, StatResponse } from '../models/stat-response.model'
 import { Observable, timer, BehaviorSubject, Subject } from 'rxjs';
 import { StatService } from '../services/stat.service'
-import { takeWhile } from 'rxjs/operators';
+import { takeWhile, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-stats',
@@ -14,7 +14,8 @@ import { takeWhile } from 'rxjs/operators';
 export class StatsComponent implements OnInit {
 
   stats$: Observable<StatResponse>
-  //stats = null
+  todayWinrate: number
+  seasonWinrate: number
 
   showLastEpisode: boolean = false
   showCheaterCount: boolean = true
@@ -25,6 +26,15 @@ export class StatsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.stats$ = this.statService.getStats()
+    this.stats$ = this.statService.getStats().pipe(
+      tap((stats) => {
+        if (stats.todayStats.episodeCount > 0)
+          this.todayWinrate = stats.todayStats.crownCount/stats.todayStats.episodeCount * 100 
+        else
+          this.todayWinrate = 0
+        if (stats.seasonStats.episodeCount > 0)
+          this.seasonWinrate = stats.seasonStats.crownCount/stats.seasonStats.episodeCount * 100 
+        else this.seasonWinrate = 0
+      }))
   }
 }

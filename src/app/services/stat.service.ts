@@ -19,7 +19,7 @@ export class StatService {
       .set('Content-type', 'application/json')
       .set('Access-Control-Allow-Origin', '*')
       .set('Accept', 'applcation/json')
-    this.stats$ = timer(1, 3000000).pipe(
+    this.stats$ = timer(1, 3000).pipe(
       switchMap(() => this.http.get<StatResponse>("https://localhost:5001/api/Stats", { 'headers': headers })),
       retry(),
       share(),
@@ -27,7 +27,9 @@ export class StatService {
   }
 
   getStats(): Observable<StatResponse> {
-    return this.stats$
+    return this.stats$.pipe(
+      tap(() => console.log('api tapped'))
+    )
   }
 
   ngOnDestroy() {
