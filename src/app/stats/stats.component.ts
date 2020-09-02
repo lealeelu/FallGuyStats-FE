@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core'
 import { Episode } from '../models/episode.model'
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
+import { SessionStat, StatResponse } from '../models/stat-response.model'
+import { Observable, timer, BehaviorSubject, Subject } from 'rxjs';
+import { StatService } from '../services/stat.service'
+import { takeWhile } from 'rxjs/operators';
 
 @Component({
   selector: 'app-stats',
@@ -9,15 +13,18 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StatsComponent implements OnInit {
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  stats$: Observable<StatResponse>
+  //stats = null
 
-  lastEpisode: Episode;
-  showLastEpisode: boolean = false;
-  showCheaterCount: boolean = true;
+  showLastEpisode: boolean = false
+  showCheaterCount: boolean = true
+  
+  constructor(
+    private statService: StatService
+  ) { 
+  }
 
   ngOnInit(): void {
-    //this.lastEpisode = this.http.get
+    this.stats$ = this.statService.getStats()
   }
 }

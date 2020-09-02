@@ -1,20 +1,16 @@
-<div class="sidebar">
+<div *ngIf="stats$ | async as stats" class="sidebar">
     <h1>Fall Guy Stats</h1>
     <p class="byline">by @lealeelu and @leekydesu</p>
     <div class="content-block today-win-rate">
         <h2>Today</h2>
-        <p>5 Crowns / 6 Episodes</p>
-        <div *ngIf="showCheaterCount">
-            <p>Cheaters: 2</p>
-        </div>        
+        <p>{{stats.todayStats.crownCount}} crowns / {{stats.todayStats.episodeCount}} episodes</p>
+        <p *ngIf="showCheaterCount">Cheaters: {{stats.todayStats.cheaterCount}}</p>
     </div>
     <div class="content-block season-win-rate">
         <h2>Season</h2>
-        <p>15 crowns / 36 episodes</p>
+        <p>{{stats.seasonStats.crownCount}} crowns / {{stats.seasonStats.episodeCount}} episodes</p>
         <p>Rounds Since Crown: 5</p>
-        <div *ngIf="showCheaterCount">
-            <p>Cheaters: 2</p>
-        </div>   
+        <p *ngIf="showCheaterCount">Cheaters: {{stats.seasonStats.cheaterCount}}</p>
     </div>
     <div class="content-block current-round">
         <h2>Slime Climb Stats</h2>
