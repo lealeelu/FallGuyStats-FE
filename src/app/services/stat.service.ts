@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, timer, Subject } from 'rxjs';
 import { StatResponse } from '../models/stat-response.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap, switchMap, retry, share, takeUntil } from 'rxjs/operators';
+import { tap, switchMap, retry, share, takeUntil } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
