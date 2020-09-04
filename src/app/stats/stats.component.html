@@ -15,7 +15,7 @@
         <p *ngIf="showCheaterCount">Cheaters: {{stats.seasonStats.cheaterCount}}</p>
     </div>
     <div *ngIf="stats.roundStats" class="content-block current-round">
-        <h2>{{stats.roundStats.roundType}}</h2>
+        <h2>{{stats.currentRound}}</h2>
         <div class="icon-row">
             <table>
                 <tr>
@@ -31,13 +31,7 @@
                     <td class="badge-count">{{stats.roundStats.notQualifiedCount}}</td>
                 </tr>
             </table>
-            <!--
-            <span class="icon icon-hexagon icon-gold"></span><div class="badge-count">{{stats.roundStats.goldCount}}</div>
-            <div class="badge-count"><span class="icon icon-hexagon icon-silver"></span>{{stats.roundStats.silverCount}}</div>
-            <div class="badge-count"><span class="icon icon-hexagon icon-bronze"></span>{{stats.roundStats.bronzeCount}}</div>
-            <div class="badge-count"><span class="icon icon-hexagon icon-pass"></span>{{stats.roundStats.qualifiedCount}}</div>
-            <div class="badge-count"><span class="icon icon-hexagon icon-fail"></span>{{stats.roundStats.notQualifiedCount}}</div>
-            --></div>
+        </div>
     </div>
     <div *ngIf="!stats.roundStats">
         <h2>No Round to Display :(</h2>

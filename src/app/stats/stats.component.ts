@@ -16,7 +16,6 @@ export class StatsComponent implements OnInit {
   stats$: Observable<StatResponse>
   todayWinrate: number
   seasonWinrate: number
-  currentRoundStats: RoundStats;
 
   showLastEpisode: boolean = false
   showCheaterCount: boolean = true
