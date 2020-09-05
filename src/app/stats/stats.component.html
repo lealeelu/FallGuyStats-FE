@@ -11,7 +11,8 @@
         <h2>Season</h2>
         <p>{{stats.seasonStats.crownCount}} crowns / {{stats.seasonStats.episodeCount}} episodes</p>
         <p>Winrate {{seasonWinrate}}%</p>
-        <p>Rounds Since Crown: {{stats.seasonStats.roundsSinceCrown}}</p>
+        <p *ngIf="stats.streak.winning">Current Winning Streak: {{stats.streak.streak}}</p>
+        <p *ngIf="!stats.streak.winning">Current Losing Streak: {{stats.streak.streak}}</p>
         <p *ngIf="showCheaterCount">Cheaters: {{stats.seasonStats.cheaterCount}}</p>
     </div>
     <div *ngIf="stats.roundStats" class="content-block current-round">

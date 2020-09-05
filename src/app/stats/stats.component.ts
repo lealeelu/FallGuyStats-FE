@@ -18,7 +18,7 @@ export class StatsComponent implements OnInit {
   seasonWinrate: number
 
   showLastEpisode: boolean = false
-  showCheaterCount: boolean = true
+  showCheaterCount: boolean = false
   
   constructor(
     private statService: StatService
@@ -29,6 +29,7 @@ export class StatsComponent implements OnInit {
     this.stats$ = this.statService.getStats().pipe(
       tap((stats) => {
         //episode
+        console.log(stats)
         if (stats.todayStats.episodeCount > 0)
           this.todayWinrate = stats.todayStats.crownCount/stats.todayStats.episodeCount * 100 
         else

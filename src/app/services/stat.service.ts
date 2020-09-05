@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ɵConsole } from '@angular/core';
 import { Observable, timer, Subject } from 'rxjs';
 import { StatResponse } from '../models/stat-response.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -19,7 +19,7 @@ export class StatService {
       .set('Content-type', 'application/json')
       .set('Access-Control-Allow-Origin', '*')
       .set('Accept', 'applcation/json')
-    this.stats$ = timer(1, 20000).pipe(
+    this.stats$ = timer(1, 10000).pipe(
       switchMap(() => this.http.get<StatResponse>("https://localhost:5001/api/Stats", { 'headers': headers })),
       retry(),
       share(),
@@ -28,7 +28,9 @@ export class StatService {
 
   getStats(): Observable<StatResponse> {
     return this.stats$.pipe(
-      tap(() => console.log('api tapped'))
+      tap((stats) => {
+        console.log('api tapped')
+      })
     )
   }
 
