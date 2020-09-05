@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core'
-import { Episode } from '../models/episode.model'
-import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
-import { SessionStat, StatResponse, RoundStats } from '../models/stat-response.model'
-import { Observable, timer, BehaviorSubject, Subject } from 'rxjs';
+import { StatResponse, RoundStats } from '../models/stat-response.model'
+import { Observable} from 'rxjs';
 import { StatService } from '../services/stat.service'
-import { takeWhile, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-stats',
@@ -14,8 +12,8 @@ import { takeWhile, tap } from 'rxjs/operators';
 export class StatsComponent implements OnInit {
 
   stats$: Observable<StatResponse>
-  todayWinrate: number
-  seasonWinrate: number
+  todayWinrate: string
+  seasonWinrate: string
 
   showLastEpisode: boolean = false
   showCheaterCount: boolean = false
@@ -29,14 +27,14 @@ export class StatsComponent implements OnInit {
     this.stats$ = this.statService.getStats().pipe(
       tap((stats) => {
         //episode
-        console.log(stats)
         if (stats.todayStats.episodeCount > 0)
-          this.todayWinrate = stats.todayStats.crownCount/stats.todayStats.episodeCount * 100 
+          this.todayWinrate = (stats.todayStats.crownCount/stats.todayStats.episodeCount * 100).toFixed(2)
         else
-          this.todayWinrate = 0
+          this.todayWinrate = '0'
         if (stats.seasonStats.episodeCount > 0)
-          this.seasonWinrate = stats.seasonStats.crownCount/stats.seasonStats.episodeCount * 100 
-        else this.seasonWinrate = 0
+          this.seasonWinrate = (stats.seasonStats.crownCount/stats.seasonStats.episodeCount * 100).toFixed(2)
+        else this.seasonWinrate = '0'
+        stats.roundStats.QualifiedCount -= stats.roundStats.GoldCount + stats.roundStats.SilverCount + stats.roundStats.BronzeCount
       }))
   }
 }
