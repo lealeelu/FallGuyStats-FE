@@ -1,4 +1,9 @@
 # FallGuyStats
+The Front end for the Fall Guy Stats Tool.
+This uses the API to get stats to display and be viewable in the OBS browser source.
+To learn more about the API and learn how you can contribute, go to the [Fall Guy Stats API github page](https://github.com/lealeelu/FallGuyStats-Api).
+
+![Fall guy stats showing in obs](https://github.com/lealeelu/FallGuyStats-Api/blob/media/StatsExample.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
 
