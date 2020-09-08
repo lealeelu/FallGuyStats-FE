@@ -15,7 +15,7 @@
         <p *ngIf="!stats.streak.winning">Current Losing Streak: {{stats.streak.streak}}</p>
         <p *ngIf="showCheaterCount">Cheaters: {{stats.seasonStats.cheaterCount}}</p>
     </div>
-    <div *ngIf="stats.roundStats" class="content-block current-round">
+    <div *ngIf="stats.currentRound" class="content-block current-round">
         <h2>{{stats.currentRound}}</h2>
         <div class="icon-row">
             <table>
