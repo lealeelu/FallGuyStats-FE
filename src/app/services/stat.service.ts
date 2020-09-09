@@ -3,6 +3,7 @@ import { Observable, timer, Subject } from 'rxjs';
 import { StatResponse } from '../models/stat-response.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap, switchMap, retry, share, takeUntil } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +20,8 @@ export class StatService {
       .set('Content-type', 'application/json')
       .set('Access-Control-Allow-Origin', '*')
       .set('Accept', 'applcation/json')
-    this.stats$ = timer(1, 10000).pipe(
-      switchMap(() => this.http.get<StatResponse>("https://localhost:5001/api/Stats", { 'headers': headers })),
+    this.stats$ = timer(1, environment.pollingFrequency).pipe(
+      switchMap(() => this.http.get<StatResponse>(environment.apiUrl, { 'headers': headers })),
       retry(),
       share(),
       takeUntil(this.stopPolling))

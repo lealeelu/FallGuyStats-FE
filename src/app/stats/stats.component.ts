@@ -3,6 +3,7 @@ import { StatResponse, RoundStats } from '../models/stat-response.model'
 import { Observable} from 'rxjs';
 import { StatService } from '../services/stat.service'
 import { tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-stats',
@@ -15,9 +16,11 @@ export class StatsComponent implements OnInit {
   todayWinrate: string
   seasonWinrate: string
 
-  showLastEpisode: boolean = false
-  showCheaterCount: boolean = false
-  
+  showLastEpisode: boolean = environment.showLastEpisode
+  showCheaterCount: boolean = environment.showCheaterCount
+  showLosingStreak: boolean = environment.showLosingStreak
+  showCredits: boolean = environment.showCredits
+
   constructor(
     private statService: StatService
   ) { 
@@ -34,7 +37,10 @@ export class StatsComponent implements OnInit {
         if (stats.seasonStats.episodeCount > 0)
           this.seasonWinrate = (stats.seasonStats.crownCount/stats.seasonStats.episodeCount * 100).toFixed(2)
         else this.seasonWinrate = '0'
-        if (stats.roundStats && stats.roundStats.QualifiedCount > 0) stats.roundStats.QualifiedCount -= stats.roundStats.GoldCount + stats.roundStats.SilverCount + stats.roundStats.BronzeCount
-      }))
+        if (stats.roundStats && stats.roundStats.QualifiedCount > 0) {
+          stats.roundStats.QualifiedCount -= stats.roundStats.GoldCount
+            + stats.roundStats.SilverCount + stats.roundStats.BronzeCount
+        }
+      }));
   }
 }

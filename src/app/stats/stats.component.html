@@ -1,6 +1,6 @@
 <div *ngIf="stats$ | async as stats" class="sidebar">
     <h1>Fall Guy Stats</h1>
-    <p class="byline">by @lealeelu and @leekydesu</p>
+    <p *ngIf="showCredits" class="byline">by @lealeelu and @leekydesu</p>
     <div class="content-block today-win-rate">
         <h2>Today</h2>
         <p>{{stats.todayStats.crownCount}} crowns / {{stats.todayStats.episodeCount}} episodes</p>
@@ -12,7 +12,7 @@
         <p>{{stats.seasonStats.crownCount}} crowns / {{stats.seasonStats.episodeCount}} episodes</p>
         <p>Winrate {{seasonWinrate}}%</p>
         <p *ngIf="stats.streak.winning">Current Winning Streak: {{stats.streak.streak}}</p>
-        <p *ngIf="!stats.streak.winning">Current Losing Streak: {{stats.streak.streak}}</p>
+        <p *ngIf="!stats.streak.winning && showLosingStreak">Current Losing Streak: {{stats.streak.streak}}</p>
         <p *ngIf="showCheaterCount">Cheaters: {{stats.seasonStats.cheaterCount}}</p>
     </div>
     <div *ngIf="stats.currentRound" class="content-block current-round">
@@ -35,6 +35,7 @@
             </table>
         </div>
     </div>
+    <div *ngElse class="content-block"></div>
     <div *ngIf="showLastEpisode">
         <h2>Last Episode</h2>
         <p></p>Crowns: {{lastEpisode.Fame}}
