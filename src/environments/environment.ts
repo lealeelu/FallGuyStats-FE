@@ -4,12 +4,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://localhost:5001/api/Stats",
-  pollingFrequency: 10000,//how often do we ask the api for new stats. Increase this number if your system is getting bogged down.
-  showLastEpisode: false, //doesn't do anything yet
-  showCheaterCount: false,
-  showLosingStreak: true,
-  showCredits: true, //if you turn this off, please give us credit in your stream's about section   
 };
 
 /*

@@ -4,6 +4,7 @@ import { Observable} from 'rxjs';
 import { StatService } from '../services/stat.service'
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { ConfigService } from '../services/config.service';
 
 @Component({
   selector: 'app-stats',
@@ -16,14 +17,19 @@ export class StatsComponent implements OnInit {
   todayWinrate: string
   seasonWinrate: string
 
-  showLastEpisode: boolean = environment.showLastEpisode
-  showCheaterCount: boolean = environment.showCheaterCount
-  showLosingStreak: boolean = environment.showLosingStreak
-  showCredits: boolean = environment.showCredits
+  showLastEpisode: boolean
+  showCheaterCount: boolean
+  showLosingStreak: boolean 
+  showCredits: boolean
 
   constructor(
-    private statService: StatService
+    private statService: StatService,
+    private configService: ConfigService
   ) { 
+    this.showLastEpisode = configService.config.showLastEpisode
+    this.showLosingStreak = configService.config.showLosingStreak
+    this.showCredits = configService.config.showCredits
+    this.showCheaterCount = configService.config.showCheaterCount
   }
 
   ngOnInit(): void {
