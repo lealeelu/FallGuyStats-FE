@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { StatResponse, RoundStats } from '../models/stat-response.model'
 import { Observable} from 'rxjs';
 import { StatService } from '../services/stat.service'
-import { tap } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
+import { tap, distinctUntilChanged } from 'rxjs/operators';
 import { ConfigService } from '../services/config.service';
 
 @Component({
@@ -25,11 +24,15 @@ export class StatsComponent implements OnInit {
   constructor(
     private statService: StatService,
     private configService: ConfigService
-  ) { 
-    this.showLastEpisode = configService.config.showLastEpisode
-    this.showLosingStreak = configService.config.showLosingStreak
-    this.showCredits = configService.config.showCredits
-    this.showCheaterCount = configService.config.showCheaterCount
+  ) {
+    configService.configSubject$
+    .pipe(distinctUntilChanged())
+    .subscribe(config => {
+      this.showCheaterCount = config.showCheaterCount
+      this.showLastEpisode = config.showLastEpisode
+      this.showLosingStreak = config.showLosingStreak
+      this.showCredits = config.showCredits
+    })
   }
 
   ngOnInit(): void {
