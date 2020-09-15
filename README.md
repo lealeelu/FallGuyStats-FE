@@ -1,3 +1,13 @@
+# This project has been merged into [Fall Guy Stats API](https://github.com/lealeelu/FallGuyStats-Api)
+You don't need to run a seperate front-end anymore.
+
+-
+-
+-
+-
+
+
+### old stuff.....
 # FallGuyStats
 The Front end for the Fall Guy Stats Tool.
 This uses the API to get stats to display and be viewable in the OBS browser source.
